@@ -26,6 +26,9 @@
 # THRIFT-847 Test Framework harmonization across all languages
 # THRIFT-819 add Enumeration for protocol, transport and server types
 
+BASEDIR=$(dirname $0)
+echo $BASEDIR
+cd $BASEDIR
 
 print_header() {
   printf "%-16s %-11s %-17s %-s\n" "client-server:" "protocol:" "transport:" "result:"
@@ -69,6 +72,8 @@ mkdir -p log
 
 print_header
 
+#TODO add enum for parameters
+#TODO align program arguments across languages
 
 protocols="binary json"
 transports="buffered framed http"
@@ -97,7 +102,7 @@ done;
 do_test "java-java" "binary" "buffered-ip" \
         "ant -f  ../lib/java/build.xml testclient" \
         "ant -f  ../lib/java/build.xml testserver" \
-        "100"
+        "120"
 do_test "cpp-java"  "binary" "buffered-ip" \
         "cpp/TestClient" \
         "ant -f  ../lib/java/build.xml testserver" \
@@ -109,7 +114,7 @@ do_test "cpp-java"  "json"   "buffered-ip" \
 do_test "js-java"   "json "  "http-ip" \
         "" \
         "ant -f  ../lib/js/test/build.xml unittest" \
-        "100"
+        "120"
 do_test "java-cpp"  "binary" "buffered-ip" \
         "ant -f  ../lib/java/build.xml testclient" \
         "cpp/TestServer" \
@@ -130,3 +135,5 @@ do_test "cpp-nodejs" "binary" "framed-ip" \
         "cpp/TestClient --transport=framed" \
         "make -C nodejs/ server" \
         "1"
+
+cd -
