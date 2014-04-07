@@ -22,7 +22,7 @@ require File.expand_path("#{File.dirname(__FILE__)}/binary_protocol_spec_shared"
 
 describe 'BinaryProtocol' do
 
-  it_should_behave_like 'a binary protocol'
+  #it_should_behave_like 'a binary protocol'
 
   def protocol_class
     Thrift::BinaryProtocol
