@@ -1,0 +1,15 @@
+Preconditions (*before* running configure)
+
+export CXXFLAGS='-std=c++11'
+gem install rspec thin rack rack-test
+brew install boost automake autoconf libtool
+
+Disable the Thrift C (GLib): `./configure --without-c_glib`
+    - For GLib, I was getting some errors that I believe were related to missing functions in the glib libs,
+        but I couldn't find any help from Google, so I punted. YMMV
+
+If you get more failure while building the Ruby code, you may need to install some extra gems. It should be clear.
+Same goes for needing extra libraries to install the C++ bindings -- whatever homebrew provides should be fine.
+
+System details:
+    * Successfully installed on OSX 10.9.2
