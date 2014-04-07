@@ -33,7 +33,7 @@ gen-*
 /compiler/cpp/thrift
 /compiler/cpp/thriftl.cc
 /compiler/cpp/thrifty.cc
-/compiler/cpp/thrifty.h
+/compiler/cpp/thrifty.hh
 /compiler/cpp/version.h
 /config.*
 /configure
