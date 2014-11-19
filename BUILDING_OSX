@@ -11,5 +11,11 @@ Disable the Thrift C (GLib): `./configure --without-c_glib`
 If you get more failure while building the Ruby code, you may need to install some extra gems. It should be clear.
 Same goes for needing extra libraries to install the C++ bindings -- whatever homebrew provides should be fine.
 
+Python errors during make install:
+    - Depending on the version of XCode, you'll also have to export some clang options during `make install`
+        ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+    - Make sure that the environment is passed through to the actual user if you're using `sudo` 
+        - Easiest to just switch to the superuser and run make without using sudo.
+
 System details:
     * Successfully installed on OSX 10.9.2
